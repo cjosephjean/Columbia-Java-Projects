@@ -1,0 +1,54 @@
+Christopher Jean								30 September 2020
+Data Structures in Java							Professor Blaer
+	
+Problem 3 Explanation
+
+In the compiler, when running the code for Problem3 by itself, the printed results for runtime were the following:
+
+16342
+6802
+1025061
+2305154
+27485
+10017505
+1151224
+81629
+100017681
+
+When compiler optimisations were disabled (i.e. java -Xint Problem3), the printed results for the runtime were the following (with an approximate delay of 10 seconds between printing the first six and last three numbers): 
+
+10156
+2563
+1026222
+7529938
+5097
+10019582
+7246094582
+74269
+100022335
+
+Running the code for Problem3 by itself once more led to different numbers all printing at approximately the same time:
+
+19785
+9222
+1049778
+2587913
+5673
+10034022
+1456347
+112031
+100020731
+
+Running the code once more with the compiler optimisations disabled resulted in different numbers with the same delay as in the second case above:
+
+10066
+2488
+1024809
+7393013
+5624
+10019669
+7264431429
+75077
+100018251
+
+Although the numbers are all different (invariably due to working in nanoseconds, as well as noise and memory allocation delays), the same pattern persists: For the same n value, the exp method compiles the most quickly followed by the cubic and constant methods, respectively. Moreover, although the n values only differ by one order of magnitude between each time the same method is called, the resulting times in nanoseconds vary by more than two orders of magnitude between each instance of the same method being called. 
